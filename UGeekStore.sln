@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGeekStore", "UGeekStore\UG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGeekStore.Core", "UGeekStore.Core\UGeekStore.Core.csproj", "{0CC991E5-EEA2-4E65-AEE7-BAB9310426ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGeekStore.DAL", "UGeekStore.DAL\UGeekStore.DAL.csproj", "{99E982D5-1DFF-45B9-B212-9BB490DF32F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGeekStore.BLL", "UGeekStore.BLL\UGeekStore.BLL.csproj", "{1B4A3081-EFE0-43C1-9CBC-791BFEEBB38F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0CC991E5-EEA2-4E65-AEE7-BAB9310426ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CC991E5-EEA2-4E65-AEE7-BAB9310426ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CC991E5-EEA2-4E65-AEE7-BAB9310426ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99E982D5-1DFF-45B9-B212-9BB490DF32F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99E982D5-1DFF-45B9-B212-9BB490DF32F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99E982D5-1DFF-45B9-B212-9BB490DF32F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99E982D5-1DFF-45B9-B212-9BB490DF32F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B4A3081-EFE0-43C1-9CBC-791BFEEBB38F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4A3081-EFE0-43C1-9CBC-791BFEEBB38F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4A3081-EFE0-43C1-9CBC-791BFEEBB38F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4A3081-EFE0-43C1-9CBC-791BFEEBB38F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
