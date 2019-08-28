@@ -13,4 +13,8 @@
     <Folder Include="EntityConfigurations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UGeekStore.Core\UGeekStore.Core.csproj" />
+  </ItemGroup>
+
 </Project>
