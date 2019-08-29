@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.DAL.Entities
 {
-    class Shippers : EntitiyBaseWithId
+    public class Shippers : EntitiyBaseWithId
     {
         public string  FirstName { get; set; }
         public string  LastName { get; set; }

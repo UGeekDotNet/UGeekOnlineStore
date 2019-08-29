@@ -23,7 +23,7 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.Property(x => x.FirstName).HasColumnType("nvarchar(20)").IsRequired(); 
             builder.Property(x => x.LastName).HasColumnType("nvarchar(30)").IsRequired(); 
             builder.Property(x => x.Email).HasColumnType("nvarchar(50)").IsRequired(); 
-            builder.Property(x => x.RegistrDate).HasColumnType("Date").HasDefaultValue("GetDate()");
+            builder.Property(x => x.RegistrDate).HasColumnType("Date").HasDefaultValue(DateTime.Now);
             builder.Property(x => x.ShipAddress).HasColumnType("nvarchar(50)");
             builder.Property(x => x.City).HasColumnType("nvarchar(25)");
             builder.Property(x => x.Country).HasColumnType("nvarchar(30)");

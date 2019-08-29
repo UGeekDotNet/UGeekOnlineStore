@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.DAL.Entities
 {
-    class Products : EntitiyBaseWithId
+    public class Products : EntitiyBaseWithId
     {
         public int SupplierID { get; set; }
         public int CategoryID { get; set; }
@@ -51,6 +51,9 @@ namespace UGeekStore.DAL.Entities
 
         public Categories Categories { get; set; }
 
+        public Suppliers Suppliers { get; set; }
+
+        public ICollection<OrderDetalis> OrderDetalis { get; set; }
 
 
 

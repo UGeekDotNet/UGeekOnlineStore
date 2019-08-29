@@ -19,5 +19,6 @@ namespace UGeekStore.DAL.Entities
         public Users Users { get; set; }
         public Shippers Shippers { get; set; }
 
+        public ICollection<OrderDetalis> OrderDetalis { get; set; }
     }
 }

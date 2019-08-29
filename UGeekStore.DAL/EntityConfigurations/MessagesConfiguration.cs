@@ -11,7 +11,8 @@ namespace UGeekStore.DAL.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Messages> builder)
         {
-            builder.HasKey(x => x.Id); // IDENTITY
+            builder.HasKey(x => x.Id); // 
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.HasOne(x => x.Users).WithMany(x => x.Messages)
             .HasForeignKey(x => x.SenderID).OnDelete(DeleteBehavior.Restrict);
 
@@ -20,9 +21,9 @@ namespace UGeekStore.DAL.EntityConfigurations
 
             builder.Property(x => x.Message).HasColumnType("nvarchar(255)").IsRequired();
 
-            builder.Property(x => x.SendTime).HasColumnType("DateTime").HasDefaultValue("GetDate()");
+            builder.Property(x => x.SendTime).HasColumnType("DateTime").HasDefaultValue(DateTime.Now);
 
-            builder.Property(x => x.ReadDate).HasColumnType("DateTime");
+            builder.Property(x => x.ReadDate).HasColumnType(DateTime.Now);
 
         }
     }

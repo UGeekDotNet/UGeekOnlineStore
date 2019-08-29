@@ -11,9 +11,10 @@ namespace UGeekStore.DAL.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Rolies> builder)
         {
-            builder.HasKey(x => x.Id); // Identity
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.RoleName).HasColumnType("nvarchar(50)");
-            builder.Property(x => x.IsDefault).HasColumnType("bit").HasDefaultValue("0");
+            builder.Property(x => x.IsDefault).HasColumnType("bit").HasDefaultValue(false);
 
         }
     }

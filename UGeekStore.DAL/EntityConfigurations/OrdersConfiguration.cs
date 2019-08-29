@@ -17,7 +17,7 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.HasOne(x => x.Users).WithMany(x => x.Orders)
             .HasForeignKey(x => x.UserID).OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(x => x.OrderDate).HasColumnType("DateTime").HasDefaultValue("GetDate()");
+            builder.Property(x => x.OrderDate).HasColumnType("DateTime").HasDefaultValue(DateTime.Now);
 
             builder.Property(x => x.ShippedDate).HasColumnType("DateTime");
 
