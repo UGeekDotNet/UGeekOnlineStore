@@ -9,5 +9,7 @@ namespace UGeekStore.DAL.Entities
     {
         public string  CategoryName { get; set; }
 
+        public ICollection<Products> Products{ get; set; }
+
     }
 }
