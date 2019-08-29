@@ -22,7 +22,7 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.Property(x => x.Country).HasColumnType("nvarchar(25)").IsRequired();
             builder.Property(x => x.Phone).HasColumnType("varchar(12)").IsRequired();
             builder.Property(x => x.Email).HasColumnType("varchar(60)").IsRequired();
-            builder.Property(x => x.Salary).HasDefaultValue(80000);
+            builder.Property(x => x.Salary).HasDefaultValue(80000m);
 
 
             builder.HasAlternateKey(x => new { x.Phone, x.Email });

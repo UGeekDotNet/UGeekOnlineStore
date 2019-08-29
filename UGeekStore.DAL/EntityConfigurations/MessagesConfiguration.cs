@@ -23,7 +23,7 @@ namespace UGeekStore.DAL.EntityConfigurations
 
             builder.Property(x => x.SendTime).HasColumnType("DateTime").HasDefaultValue(DateTime.Now);
 
-            builder.Property(x => x.ReadDate).HasColumnType(DateTime.Now);
+            builder.Property(x => x.ReadDate).HasColumnType("DateTime");
 
         }
     }

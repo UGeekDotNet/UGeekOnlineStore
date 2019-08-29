@@ -11,6 +11,7 @@ namespace UGeekStore.DAL.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<OrderDetalis> builder)
         {
+            builder.HasKey(x => new { x.OrderID, x.ProductID });
             builder.HasOne(x => x.Products).WithMany(x => x.OrderDetalis)
             .HasForeignKey(x => x.ProductID).OnDelete(DeleteBehavior.Restrict);
 

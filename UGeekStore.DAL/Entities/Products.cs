@@ -35,7 +35,7 @@ namespace UGeekStore.DAL.Entities
             }
         }
         public string Description { get; set; }
-        public string  AddedDate { get; set; }
+        public DateTime  AddedDate { get; set; }
         private int _count;
         public int Count
         {
