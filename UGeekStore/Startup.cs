@@ -46,6 +46,7 @@ namespace UGeekStore
                 app.UseDeveloperExceptionPage();
             }
 
+
             app.UseMvc();
         }
     }
