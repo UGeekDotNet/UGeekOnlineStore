@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using UGeekStore.DAL.Entities;
-using UGeekStore.DAL.EntityConfigurations;
 
 namespace UGeekStore.DAL
 {
