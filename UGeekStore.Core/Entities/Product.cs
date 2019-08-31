@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
-namespace UGeekStore.DAL.Entities
+namespace UGeekStore.Core.Entities
 {
-    public class Products : EntitiyBaseWithId
+  public  class Product : EntityBaseWithId
     {
         public int SupplierID { get; set; }
         public int CategoryID { get; set; }
-        public string  ProductName { get; set; }
+        public string Name { get; set; }
         private decimal _unitPrice;
         public decimal UnitPrice
         {
@@ -35,7 +35,7 @@ namespace UGeekStore.DAL.Entities
             }
         }
         public string Description { get; set; }
-        public DateTime  AddedDate { get; set; }
+        public DateTime AddedDate { get; set; }
         private int _count;
         public int Count
         {
@@ -48,14 +48,9 @@ namespace UGeekStore.DAL.Entities
                     throw new ArgumentNullException { };
             }
         }
-
-        public Categories Categories { get; set; }
-
-        public Suppliers Suppliers { get; set; }
-
+        public Category Category { get; set; }
+        public Supplier Supplier { get; set; }
         public ICollection<OrderDetalis> OrderDetalis { get; set; }
-
-
 
     }
 }

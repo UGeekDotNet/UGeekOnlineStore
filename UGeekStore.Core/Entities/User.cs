@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
-namespace UGeekStore.DAL.Entities
+namespace UGeekStore.Core.Entities
 {
-    public class Users  : EntitiyBaseWithId
+    public class User : EntityBaseWithId
     {
         public int AccessID { get; set; }
-        public string UserName { get; set; }
+        public string Name { get; set; }
         private string _password;
         public string Password
         {
@@ -21,22 +21,20 @@ namespace UGeekStore.DAL.Entities
                     throw new Exception("Your password must be at least 8 characters !!!");
             }
         }
-        public string  FirstName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public DateTime RegistrDate { get; set; }
-        public string ShipAddress { get; set; }
+        public string Address { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public string ShipPostalCode { get; set; }
+        public string PostalCode { get; set; }
 
-        public Rolies Rolies { get; set; }
+       public Role Role { get; set; }
 
-        public ICollection<Messages>  Messages { get; set; }
+       public ICollection<Message> Messages { get; set; }
 
-        public ICollection<Orders> Orders { get; set; }
-
-
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

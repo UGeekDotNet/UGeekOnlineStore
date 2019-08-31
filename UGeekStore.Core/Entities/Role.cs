@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
-namespace UGeekStore.DAL.Entities
+namespace UGeekStore.Core.Entities
 {
-   public class Rolies : EntitiyBaseWithId
+   public class Role : EntityBaseWithId
     {
-        public string RoleName { get; set; }
+        public string Name { get; set; }
         public bool? IsDefault { get; set; }
-
-        public ICollection<Users>Users { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

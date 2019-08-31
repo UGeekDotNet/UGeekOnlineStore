@@ -3,20 +3,18 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UGeekStore.DAL.Entities;
+using UGeekStore.Core.Entities;
 
 namespace UGeekStore.DAL.EntityConfigurations
 {
-    class CategoriesConfiguration : IEntityTypeConfiguration<Categories>
+   public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Categories> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
-
-            builder.Property(x => x.CategoryName).HasColumnType("nvarchar(30)").IsRequired();
-
-            builder.HasAlternateKey(x => x.CategoryName);
+            builder.Property(x => x.Name).HasColumnType("nvarchar(30)").IsRequired();
+            builder.HasAlternateKey(x => x.Name);
         }
     }
 }

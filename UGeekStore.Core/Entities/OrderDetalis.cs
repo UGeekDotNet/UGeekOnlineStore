@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
-namespace UGeekStore.DAL.Entities
+namespace UGeekStore.Core.Entities
 {
     public class OrderDetalis : EntityBase
     {
@@ -21,7 +21,6 @@ namespace UGeekStore.DAL.Entities
                     throw new Exception { };
             }
         }
-
         private float _discount;
         public float Discount
         {
@@ -34,27 +33,10 @@ namespace UGeekStore.DAL.Entities
                     throw new Exception { };
             }
         }
-
         private int _quantity;
-
-        public int Quantity
-        {
-            get
-            {
-                return this._quantity;
-            }
-            set
-            {
-                if (value >= 1)
-                    this._quantity = value;
-                else
-                    throw new Exception { };
-            }
-        }
-
-
-        public Products Products { get; set; }
-        public Orders Orders { get; set; }
+        public int Quantity;
+        public Product Product { get; set; }
+        public Order Order { get; set; }
 
     }
 }

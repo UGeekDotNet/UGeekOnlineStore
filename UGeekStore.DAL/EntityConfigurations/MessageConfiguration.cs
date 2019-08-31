@@ -1,0 +1,32 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using UGeekStore.Core.Entities;
+
+namespace UGeekStore.DAL.EntityConfigurations
+{
+    public class MessageConfiguration : IEntityTypeConfiguration<Message>
+    {
+        public void Configure(EntityTypeBuilder<Message> builder)
+        {
+            builder.HasKey(x => x.Id); 
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
+
+            builder.HasOne(x => x.User)
+                   .WithMany(x => x.Messages)
+                   .HasForeignKey(x => x.SenderID)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.User)
+                   .WithMany(x => x.Messages)
+                   .HasForeignKey(x => x.ReciverID)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Property(x => x.Text).HasColumnType("nvarchar(255)").IsRequired();
+            builder.Property(x => x.SendTime).HasColumnType("DateTime").HasDefaultValue(DateTime.Now);
+            builder.Property(x => x.ReadDate).HasColumnType("DateTime");
+        }
+    }
+}
