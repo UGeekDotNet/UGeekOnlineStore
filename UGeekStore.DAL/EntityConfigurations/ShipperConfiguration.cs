@@ -27,6 +27,7 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.HasAlternateKey(x => new { x.Phone, x.Email });
 
 
+
         }
     }
 }
