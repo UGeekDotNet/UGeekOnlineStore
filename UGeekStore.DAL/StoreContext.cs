@@ -1,19 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using UGeekStore.Core.Entities;
+using UGeekStore.DAL.Entities;
+using UGeekStore.DAL.EntityConfigurations;
 
 namespace UGeekStore.DAL
 {
     public class StoreContext : DbContext
     {
 
-        public DbSet<Rolies> Rolies { get; set; }
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Messages> Messages { get; set; }
-        public DbSet<Categories> Categories { get; set; }
-        public DbSet<Suppliers> Suppliers { get; set; }
-        public DbSet<Products> Products { get; set; }
-        public DbSet<Shippers> Shippers { get; set; }
-        public DbSet<Orders> Orders { get; set; }
+        public DbSet<Role> Rolies { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Shipper> Shippers { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetalis> OrderDetalis { get; set; }
 
 
@@ -29,14 +32,14 @@ namespace UGeekStore.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new RoliesConfiguration());
-            modelBuilder.ApplyConfiguration(new UsersConfiguration());
-            modelBuilder.ApplyConfiguration(new MessagesConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoriesConfiguration());
-            modelBuilder.ApplyConfiguration(new SuppliersConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductsConfiguration());
-            modelBuilder.ApplyConfiguration(new ShippersConfiguration());
-            modelBuilder.ApplyConfiguration(new OrdersConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new MessageConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new SupplierConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ShipperConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderDetalisConfiguration());
 
 

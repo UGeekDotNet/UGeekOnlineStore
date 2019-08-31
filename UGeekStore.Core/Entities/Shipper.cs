@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UGeekStore.Core.Entities;
 using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.DAL.Entities
@@ -16,5 +17,6 @@ namespace UGeekStore.DAL.Entities
         public string Phone { get; set; }
         public string Email { get; set; }
         public decimal Salary { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
