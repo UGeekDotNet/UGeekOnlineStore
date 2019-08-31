@@ -34,7 +34,18 @@ namespace UGeekStore.Core.Entities
             }
         }
         private int _quantity;
-        public int Quantity;
+
+        public int Quantity
+        {
+            get { return this._quantity; }
+            set
+            {
+                if (value >= 1)
+                    this._quantity = value;
+                else
+                    this._quantity = 1;
+            }
+        }
         public Product Product { get; set; }
         public Order Order { get; set; }
 
