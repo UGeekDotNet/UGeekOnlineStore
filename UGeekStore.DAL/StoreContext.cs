@@ -21,11 +21,10 @@ namespace UGeekStore.DAL
 
 
         public StoreContext(DbContextOptions options)
-            :base(options)
+            : base(options)
         {
             Database.EnsureCreated();
         }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -43,7 +42,7 @@ namespace UGeekStore.DAL
 
 
             // Tables configurations
-            //modelBuilder.ApplyConfiguration(new AccountPermissionConfiguration());
+            modelBuilder.ApplyConfiguration(new ShipperConfiguration());
         }
-        }
+    }
 }
