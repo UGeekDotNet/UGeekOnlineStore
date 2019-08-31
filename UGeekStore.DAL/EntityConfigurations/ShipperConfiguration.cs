@@ -25,6 +25,8 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.Property(x => x.Salary).HasDefaultValue(80000m);
 
             builder.HasAlternateKey(x => new { x.Phone, x.Email });
+
+
         }
     }
 }
