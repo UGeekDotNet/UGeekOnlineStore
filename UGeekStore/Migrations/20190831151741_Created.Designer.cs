@@ -10,8 +10,8 @@ using UGeekStore.DAL;
 namespace UGeekStore.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20190829195536_Migrations")]
-    partial class Migrations
+    [Migration("20190831151741_Created")]
+    partial class Created
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,32 +21,28 @@ namespace UGeekStore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Categories", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CategoryName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
-                    b.HasAlternateKey("CategoryName");
+                    b.HasAlternateKey("Name");
 
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Messages", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(255)");
 
                     b.Property<DateTime>("ReadDate")
                         .HasColumnType("DateTime");
@@ -56,9 +52,13 @@ namespace UGeekStore.Migrations
                     b.Property<DateTime>("SendTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DateTime")
-                        .HasDefaultValue(new DateTime(2019, 8, 29, 23, 55, 32, 646, DateTimeKind.Local).AddTicks(8776));
+                        .HasDefaultValue(new DateTime(2019, 8, 31, 19, 17, 40, 670, DateTimeKind.Local).AddTicks(3007));
 
                     b.Property<int>("SenderID");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
@@ -67,7 +67,50 @@ namespace UGeekStore.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.OrderDetalis", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DateTime")
+                        .HasDefaultValue(new DateTime(2019, 8, 31, 19, 17, 40, 690, DateTimeKind.Local).AddTicks(3631));
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<DateTime>("ShippedDate")
+                        .HasColumnType("DateTime");
+
+                    b.Property<int>("ShipperID");
+
+                    b.Property<int>("UserID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShipperID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("UGeekStore.Core.Entities.OrderDetalis", b =>
                 {
                     b.Property<int>("OrderID");
 
@@ -92,50 +135,7 @@ namespace UGeekStore.Migrations
                     b.ToTable("OrderDetalis");
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Orders", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("OrderDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("DateTime")
-                        .HasDefaultValue(new DateTime(2019, 8, 29, 23, 55, 32, 666, DateTimeKind.Local).AddTicks(8228));
-
-                    b.Property<string>("ShipAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("ShipCity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("ShipCountry")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("ShipPostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(15)");
-
-                    b.Property<DateTime>("ShippedDate")
-                        .HasColumnType("DateTime");
-
-                    b.Property<int>("ShipperID");
-
-                    b.Property<int>("UserID");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ShipperID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Products", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -144,7 +144,7 @@ namespace UGeekStore.Migrations
                     b.Property<DateTime>("AddedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("Date")
-                        .HasDefaultValue(new DateTime(2019, 8, 29, 23, 55, 32, 658, DateTimeKind.Local).AddTicks(6472));
+                        .HasDefaultValue(new DateTime(2019, 8, 31, 19, 17, 40, 680, DateTimeKind.Local).AddTicks(3314));
 
                     b.Property<int>("CategoryID");
 
@@ -155,7 +155,7 @@ namespace UGeekStore.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
@@ -173,14 +173,14 @@ namespace UGeekStore.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.HasIndex("ProductName");
+                    b.HasIndex("Name");
 
                     b.HasIndex("SupplierID");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Rolies", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -191,7 +191,7 @@ namespace UGeekStore.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<string>("RoleName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
@@ -199,7 +199,94 @@ namespace UGeekStore.Migrations
                     b.ToTable("Rolies");
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Shippers", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Supplier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Adress")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Name");
+
+                    b.ToTable("Suppliers");
+                });
+
+            modelBuilder.Entity("UGeekStore.Core.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccessID");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<DateTime>("RegistrDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("Date")
+                        .HasDefaultValue(new DateTime(2019, 8, 31, 19, 17, 40, 664, DateTimeKind.Local).AddTicks(5462));
+
+                    b.HasKey("Id");
+
+                    b.HasAlternateKey("Name", "Email");
+
+                    b.HasIndex("AccessID");
+
+                    b.HasIndex("Name", "FirstName", "LastName");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("UGeekStore.DAL.Entities.Shipper", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -236,7 +323,7 @@ namespace UGeekStore.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(12)");
 
-                    b.Property<decimal?>("Salary")
+                    b.Property<decimal>("Salary")
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(80000m);
 
@@ -247,143 +334,56 @@ namespace UGeekStore.Migrations
                     b.ToTable("Shippers");
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Suppliers", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Message", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Adress")
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<bool>("Status")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("CompanyName");
-
-                    b.ToTable("Suppliers");
-                });
-
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Users", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccessID");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(25)");
-
-                    b.Property<DateTime>("RegistrDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("Date")
-                        .HasDefaultValue(new DateTime(2019, 8, 29, 23, 55, 32, 640, DateTimeKind.Local).AddTicks(9980));
-
-                    b.Property<string>("ShipAddress")
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ShipPostalCode")
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("UserName", "Email");
-
-                    b.HasIndex("AccessID");
-
-                    b.HasIndex("UserName", "FirstName", "LastName");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Messages", b =>
-                {
-                    b.HasOne("UGeekStore.DAL.Entities.Users", "Users")
+                    b.HasOne("UGeekStore.Core.Entities.User", "User")
                         .WithMany("Messages")
                         .HasForeignKey("ReciverID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.OrderDetalis", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.Order", b =>
                 {
-                    b.HasOne("UGeekStore.DAL.Entities.Orders", "Orders")
-                        .WithMany("OrderDetalis")
-                        .HasForeignKey("OrderID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("UGeekStore.DAL.Entities.Products", "Products")
-                        .WithMany("OrderDetalis")
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Orders", b =>
-                {
-                    b.HasOne("UGeekStore.DAL.Entities.Shippers", "Shippers")
+                    b.HasOne("UGeekStore.DAL.Entities.Shipper", "Shipper")
                         .WithMany("Orders")
                         .HasForeignKey("ShipperID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("UGeekStore.DAL.Entities.Users", "Users")
+                    b.HasOne("UGeekStore.Core.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Products", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.OrderDetalis", b =>
                 {
-                    b.HasOne("UGeekStore.DAL.Entities.Categories", "Categories")
+                    b.HasOne("UGeekStore.Core.Entities.Order", "Order")
+                        .WithMany("OrderDetalis")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("UGeekStore.Core.Entities.Product", "Product")
+                        .WithMany("OrderDetalis")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("UGeekStore.Core.Entities.Product", b =>
+                {
+                    b.HasOne("UGeekStore.Core.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("UGeekStore.DAL.Entities.Suppliers", "Suppliers")
+                    b.HasOne("UGeekStore.Core.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierID")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("UGeekStore.DAL.Entities.Users", b =>
+            modelBuilder.Entity("UGeekStore.Core.Entities.User", b =>
                 {
-                    b.HasOne("UGeekStore.DAL.Entities.Rolies", "Rolies")
+                    b.HasOne("UGeekStore.Core.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("AccessID")
                         .OnDelete(DeleteBehavior.Cascade);
