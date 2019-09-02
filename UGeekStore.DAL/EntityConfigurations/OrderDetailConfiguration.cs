@@ -7,19 +7,19 @@ using UGeekStore.Core.Entities;
 
 namespace UGeekStore.DAL.EntityConfigurations
 {
-    public class OrderDetalisConfiguration : IEntityTypeConfiguration<OrderDetalis>
+    public class OrderDetailConfiguration : IEntityTypeConfiguration<OrderDetail>
     {
-        public void Configure(EntityTypeBuilder<OrderDetalis> builder)
+        public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
             builder.HasKey(x => new { x.OrderID, x.ProductID });
 
             builder.HasOne(x => x.Product)
-                   .WithMany(x => x.OrderDetalis)
+                   .WithMany(x => x.OrderDetails)
                    .HasForeignKey(x => x.ProductID)
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Order)
-                   .WithMany(x => x.OrderDetalis)
+                   .WithMany(x => x.OrderDetails)
                    .HasForeignKey(x => x.OrderID)
                    .OnDelete(DeleteBehavior.Restrict);
 

@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.Core.Entities
 {
-    public class OrderDetalis : EntityBase
+    public class OrderDetail : EntityBase
     {
         public int OrderID { get; set; }
         public int ProductID { get; set; }

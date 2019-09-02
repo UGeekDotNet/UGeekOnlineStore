@@ -20,6 +20,6 @@ namespace UGeekStore.Core.Entities
         public User User { get; set; }
         public Shipper Shipper { get; set; }
 
-        public ICollection<OrderDetalis> OrderDetalis { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

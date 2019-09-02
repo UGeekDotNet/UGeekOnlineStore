@@ -6,7 +6,7 @@ using UGeekStore.Core.Infrastructre.RepositoryInterfaces;
 
 namespace UGeekStore.DAL.Repositories
 {
-    public class OrderDetalisRepository : RepositoryBase<OrderDetalis>, IOrderDetalisRepository
+    public class OrderDetalisRepository : RepositoryBase<OrderDetail>, IOrderDetalisRepository
     {
         public OrderDetalisRepository(StoreContext _context):base(_context)
         {

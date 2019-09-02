@@ -50,7 +50,7 @@ namespace UGeekStore.Core.Entities
         }
         public Category Category { get; set; }
         public Supplier Supplier { get; set; }
-        public ICollection<OrderDetalis> OrderDetalis { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
 
     }
 }

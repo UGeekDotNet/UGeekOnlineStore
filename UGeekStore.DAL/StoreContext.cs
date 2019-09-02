@@ -17,7 +17,7 @@ namespace UGeekStore.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Shipper> Shippers { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetalis> OrderDetalis { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
 
@@ -42,7 +42,7 @@ namespace UGeekStore.DAL
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ShipperConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderDetalisConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
 
 
             // Tables configurations

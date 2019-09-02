@@ -6,7 +6,7 @@ using UGeekStore.Core.Infrastructre.RepositoryAbstraction;
 
 namespace UGeekStore.Core.Infrastructre.RepositoryInterfaces
 {
-   public interface IOrderDetalisRepository : IRepositoryBase<OrderDetalis>
+   public interface IOrderDetalisRepository : IRepositoryBase<OrderDetail>
     {
     }
 }
