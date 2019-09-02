@@ -1,0 +1,65 @@
+﻿Открытие репозиториев:
+C:\Users\nazar\source\repos\UGeekOnlineStore
+Получение из origin
+From https://github.com/UGeekDotNet/UGeekOnlineStore
+ = [up to date]      master      -> origin/master
+ = [up to date]      development -> origin/development
+From https://github.com/UGeekDotNet/UGeekOnlineStore
+ = [up to date]      master      -> origin/master
+ = [up to date]      development -> origin/development
+From https://github.com/UGeekDotNet/UGeekOnlineStore
+ = [up to date]      master      -> origin/master
+ = [up to date]      development -> origin/development
+Получение из origin
+From https://github.com/UGeekDotNet/UGeekOnlineStore
+ = [up to date]      master      -> origin/master
+ = [up to date]      development -> origin/development
+Получение из origin
+From https://github.com/UGeekDotNet/UGeekOnlineStore
+ = [up to date]      master      -> origin/master
+ = [up to date]      development -> origin/development
+Извлечена development
+Your branch is up to date with 'origin/development'.
+Switched to branch 'development'
+From https://github.com/UGeekDotNet/UGeekOnlineStore
+ = [up to date]      development -> origin/development
+ = [up to date]      master      -> origin/master
+Switched to branch 'Taron'
+Извлечена Taron
+Отправка Taron
+Error: cannot spawn /c/program files (x86)/microsoft visual studio/2019/professional/common7/ide/commonextensions/microsoft/teamfoundation/team explorer/Git/mingw32/libexec/git-core/git-askpass.exe: No error
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+could not read Username for 'https://github.com': terminal prompts disabled
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Отправка Taron
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+unable to access 'https://github.com/UGeekDotNet/UGeekOnlineStore.git/': The requested URL returned error: 403
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Отправка Taron
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+unable to access 'https://github.com/UGeekDotNet/UGeekOnlineStore.git/': The requested URL returned error: 403
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Отправка Taron
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+unable to access 'https://github.com/UGeekDotNet/UGeekOnlineStore.git/': The requested URL returned error: 403
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Отправка Taron
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+unable to access 'https://github.com/UGeekDotNet/UGeekOnlineStore.git/': The requested URL returned error: 403
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Отправка Taron
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+unable to access 'https://github.com/UGeekDotNet/UGeekOnlineStore.git/': The requested URL returned error: 403
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Отправка Taron
+Произошла ошибка при отправке ветви в удаленный репозиторий: Git failed with a fatal error.
+unable to access 'https://github.com/UGeekDotNet/UGeekOnlineStore.git/': The requested URL returned error: 403
+Pushing to https://github.com/UGeekDotNet/UGeekOnlineStore.git
+
+Не удалось отправить ветвь в удаленный репозиторий. Дополнительные сведения см. в окне вывода.
