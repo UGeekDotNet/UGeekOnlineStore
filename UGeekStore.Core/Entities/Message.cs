@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.Core.Entities
 {
-   public class Message:EntityBaseWithId
+    public class Message : EntityBaseWithId
     {
         public int SenderID { get; set; }
         public int ReciverID { get; set; }

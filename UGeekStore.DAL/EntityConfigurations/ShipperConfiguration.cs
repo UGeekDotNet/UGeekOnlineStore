@@ -24,7 +24,8 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.Property(x => x.Email).HasColumnType("varchar(60)").IsRequired();
             builder.Property(x => x.Salary).HasDefaultValue(80000m);
 
-            builder.HasAlternateKey(x => new { x.Phone, x.Email });
+            builder.HasAlternateKey(x => x.Email);
+            builder.HasAlternateKey(x => x.Phone);
         }
     }
 }

@@ -6,7 +6,7 @@ using UGeekStore.Core.Infrastructre.RepositoryInterfaces;
 
 namespace UGeekStore.DAL.Repositories
 {
-  public  class MessageRepository : RepositoryBase<Message>,IMessageRepository
+    public class MessageRepository : RepositoryBase<Message>, IMessageRepository
     {
         public MessageRepository(StoreContext _context) : base(_context)
         {

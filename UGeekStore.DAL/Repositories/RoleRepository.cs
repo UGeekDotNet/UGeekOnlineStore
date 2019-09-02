@@ -6,7 +6,7 @@ using UGeekStore.Core.Infrastructre.RepositoryInterfaces;
 
 namespace UGeekStore.DAL.Repositories
 {
-   public class RoleRepository : RepositoryBase<Role>,IRoleRepository
+    public class RoleRepository : RepositoryBase<Role>, IRoleRepository
     {
         public RoleRepository(StoreContext _context) : base(_context)
         {

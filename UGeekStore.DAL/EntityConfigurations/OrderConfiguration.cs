@@ -29,9 +29,6 @@ namespace UGeekStore.DAL.EntityConfigurations
                    .WithMany(x => x.Orders)
                    .HasForeignKey(x => x.ShipperID)
                    .OnDelete(DeleteBehavior.Restrict);
-
-
-
         }
     }
 }

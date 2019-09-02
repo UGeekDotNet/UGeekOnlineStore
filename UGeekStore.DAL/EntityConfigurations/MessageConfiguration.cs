@@ -26,7 +26,6 @@ namespace UGeekStore.DAL.EntityConfigurations
                    .WithMany(x => x.ReciversMessages)
                    .HasForeignKey(x => x.ReciverID)
                    .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

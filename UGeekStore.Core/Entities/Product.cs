@@ -7,10 +7,13 @@ namespace UGeekStore.Core.Entities
 {
    public class Product:EntityBaseWithId
     {
+        private float _weight;
+        private decimal _unitPrice;
+        private int _count;
+
         public int SupplierID { get; set; }
         public int CategoryID { get; set; }
         public string Name { get; set; }
-        private decimal _unitPrice;
         public decimal UnitPrice
         {
             get
@@ -29,7 +32,6 @@ namespace UGeekStore.Core.Entities
                 }
             }
         }
-        private float _weight;
         public float Weight
         {
             get
@@ -51,7 +53,6 @@ namespace UGeekStore.Core.Entities
         }
         public string Description { get; set; }
         public DateTime AddDate { get; set; }
-        private int _count;
         public int  Count
         {
             get

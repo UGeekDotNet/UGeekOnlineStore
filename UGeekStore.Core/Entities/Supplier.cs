@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.Core.Entities
 {
-   public class Supplier:EntityBaseWithId
+    public class Supplier : EntityBaseWithId
     {
         public string CompanyName { get; set; }
         public string Address { get; set; }
@@ -13,6 +13,6 @@ namespace UGeekStore.Core.Entities
         public string Country { get; set; }
         public bool Status { get; set; }
 
-        public ICollection<Product> Products { get; set; } 
+        public ICollection<Product> Products { get; set; }
     }
 }

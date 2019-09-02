@@ -8,7 +8,6 @@ using UGeekStore.Core.Entities;
 namespace UGeekStore.DAL.EntityConfigurations
 {
     public class OrderDetailConfiguration : IEntityTypeConfiguration<OrderDetail>
-
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
@@ -28,8 +27,5 @@ namespace UGeekStore.DAL.EntityConfigurations
                    .HasForeignKey(x => x.OrderID)
                    .OnDelete(DeleteBehavior.Restrict);
         }
-        
-
-        
     }
 }

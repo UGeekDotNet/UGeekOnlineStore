@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.Core.Entities
 {
-   public class User: EntityBaseWithId
+    public class User : EntityBaseWithId
     {
         public int AccessID { get; set; }
         public string UserName { get; set; }
@@ -18,7 +18,7 @@ namespace UGeekStore.Core.Entities
             }
             set
             {
-                if(value.Length>=8 && value.Length <= 25)
+                if (value.Length >= 8 && value.Length <= 25)
                 {
                     this._password = value;
                 }

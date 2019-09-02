@@ -18,12 +18,8 @@ namespace UGeekStore.DAL
         public DbSet<Message> Messages { get; set; }
         public DbSet<User> Users { get; set; }
 
-
         public StoreContext(DbContextOptions options)
-            : base(options)
-        {
-
-        }
+            : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -6,7 +6,7 @@ using UGeekStore.Core.Infrastructre.RepositoryInterfaces;
 
 namespace UGeekStore.DAL.Repositories
 {
-   public class SupplierRepository : RepositoryBase<Supplier>,ISupplierRepository
+    public class SupplierRepository : RepositoryBase<Supplier>, ISupplierRepository
     {
         public SupplierRepository(StoreContext _context) : base(_context)
         {

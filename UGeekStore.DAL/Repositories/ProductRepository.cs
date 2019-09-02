@@ -6,7 +6,7 @@ using UGeekStore.Core.Infrastructre.RepositoryInterfaces;
 
 namespace UGeekStore.DAL.Repositories
 {
-   public class ProductRepository : RepositoryBase<Product>,IProductRepository
+    public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
         public ProductRepository(StoreContext _context) : base(_context)
         {

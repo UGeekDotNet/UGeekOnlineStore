@@ -6,7 +6,7 @@ using UGeekStore.DAL.Entities;
 
 namespace UGeekStore.Core.Entities
 {
-   public class Order:EntityBaseWithId
+    public class Order : EntityBaseWithId
     {
         public int UserID { get; set; }
         public DateTime OrderDate { get; set; }

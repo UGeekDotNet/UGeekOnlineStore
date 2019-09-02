@@ -5,7 +5,7 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.Core.Entities
 {
-   public class Category: EntityBaseWithId
+    public class Category : EntityBaseWithId
     {
         public string Name { get; set; }
 

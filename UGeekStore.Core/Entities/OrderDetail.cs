@@ -5,11 +5,14 @@ using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
 namespace UGeekStore.Core.Entities
 {
-   public class OrderDetail:EntityBase
+    public class OrderDetail : EntityBase
     {
+        private decimal _unitPrice;
+        private int _quantity;
+        private float _discount;
+
         public int ProductID { get; set; }
         public int OrderID { get; set; }
-        private decimal _unitPrice;
         public decimal UnitPrice
         {
             get
@@ -29,7 +32,6 @@ namespace UGeekStore.Core.Entities
                 }
             }
         }
-        private int  _quantity;
         public int Quantity
         {
             get
@@ -49,7 +51,6 @@ namespace UGeekStore.Core.Entities
                 }
             }
         }
-        private float _discount;
         public float Discount
         {
             get
@@ -71,8 +72,5 @@ namespace UGeekStore.Core.Entities
 
         public Product Product { get; set; }
         public Order Order { get; set; }
-
-
-
     }
 }

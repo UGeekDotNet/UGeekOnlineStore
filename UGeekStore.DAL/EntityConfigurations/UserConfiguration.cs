@@ -24,14 +24,16 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.Property(x => x.City).HasColumnType("NVARCHAR(30)");
             builder.Property(x => x.Country).HasColumnType("NVARCHAR(30)");
             builder.Property(x => x.PostalCode).HasColumnType("NVARCHAR(10)");
-            builder.HasAlternateKey(x =>new { x.UserName ,x.Email});
+
+            builder.HasAlternateKey(x => x.UserName);
+            builder.HasAlternateKey(x => x.Email);
+
             builder.HasIndex(x => x.FirstName);
 
             builder.HasOne(x => x.Role)
                    .WithMany(x => x.Users)
                    .HasForeignKey(x => x.AccessID)
                    .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }
