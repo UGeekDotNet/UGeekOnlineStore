@@ -19,6 +19,14 @@ namespace UGeekStore.BLL.Operations
             _repositoryManager = repositoryManager;
             _mapper = mapper;
         }
+        public async Task<OrderDetailModel> GetOrderDetail(long OrderId, long ProductId)
+        {
+            var OrderDetail = await _repositoryManager.OrderDetails
+                                                   .GetSingleAsync(item => item.OrderID == OrderId
+                                                                    && item.ProductID==ProductId);
+            var result = _mapper.Map<OrderDetailModel>(OrderDetail);
+            return result;
+        }
 
         public async Task AddOrderDetail(OrderDetailModel orderdetail)
         {

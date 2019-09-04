@@ -9,7 +9,6 @@ using UGeekStore.Core.Infrastructre.RepositoryAbstraction;
 using UGeekStore.Core.Models;
 using UGeekStore.DAL.Entities;
 
-
 namespace UGeekStore.BLL.Operations
 {
     public class CategoryOperation : ICategoryOperation
