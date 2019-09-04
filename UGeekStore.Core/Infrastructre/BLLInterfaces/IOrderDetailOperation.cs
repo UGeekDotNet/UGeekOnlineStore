@@ -8,7 +8,7 @@ namespace UGeekStore.Core.Infrastructre.BLLInterfaces
 {
     public interface IOrderDetailOperation
     {
-        Task<OrderDetailModel> GetOrderDetails(long orderId, long productId);
+        Task<OrderDetailModel> GetOrderDetail(long orderId, long productId);
         Task AddOrderDetails(OrderDetailModel orderDetailsModel);
         Task UpdateOrderDetail(OrderDetailModel orderDetailModel);
         Task DeleteCategory(long orderId, long productId);

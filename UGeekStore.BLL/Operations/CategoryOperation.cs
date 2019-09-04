@@ -34,10 +34,9 @@ namespace UGeekStore.BLL.Operations
         }
         public async Task UpdateCategory(CategoryModel categoryModel)
         {
-            var category = await _repositoryManager.Categories.GetSingleAsync(x => x.Id == categoryModel.Id);
             var updateCategory = _mapper.Map<Category>(categoryModel);
-            category = updateCategory;
-            _repositoryManager.Categories.Update(category);
+
+            _repositoryManager.Categories.Update(updateCategory);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteCategory(long id)

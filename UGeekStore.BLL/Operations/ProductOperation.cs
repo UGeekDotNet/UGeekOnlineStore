@@ -34,10 +34,8 @@ namespace UGeekStore.BLL.Operations
         }
         public async Task UpdateProduct(ProductModel productModel)
         {
-            var product = await _repositoryManager.Products.GetSingleAsync(x => x.Id == productModel.Id);
             var updateProduct = _mapper.Map<Product>(productModel);
-            product = updateProduct;
-            _repositoryManager.Products.Update(product);
+            _repositoryManager.Products.Update(updateProduct);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteProduct(long id)
