@@ -34,10 +34,10 @@ namespace UGeekStore.BLL.Operations
             _repositoryManager.Supplie.Add(result);
             await _repositoryManager.CompleteAsync();
         }
-        public async Task RemoveSupplier(SupplierModel supplier)
+        public async Task RemoveSupplier(long id)
         {
-            var result = _mapper.Map<Supplier>(supplier);
-            _repositoryManager.Supplie.Delete(result);
+            _repositoryManager.Supplie.DeleteWhere(x => x.Id == id);
+
             await _repositoryManager.CompleteAsync();
         }
         public async Task UpdateSupplier(SupplierModel supplier)

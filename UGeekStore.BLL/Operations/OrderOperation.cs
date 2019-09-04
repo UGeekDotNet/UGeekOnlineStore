@@ -35,10 +35,10 @@ namespace UGeekStore.BLL.Operations
 
             
         }
-        public async Task RemoveOrder(OrderModel order)
+        public async Task RemoveOrder(long id)
         {
-            var result = _mapper.Map<Order>(order);
-            _repositoryManager.Order.Delete(result);
+            _repositoryManager.Order.DeleteWhere(x => x.Id == id);
+
             await _repositoryManager.CompleteAsync();
         }
         public async Task UpdateOrder(OrderModel order)

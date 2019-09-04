@@ -37,10 +37,11 @@ namespace UGeekStore.BLL.Operations
             await _repositoryManager.CompleteAsync();
             
         }
-        public async Task RemoveMessage(MessageModel message)
+        public async Task RemoveMessage(long id)
         {
-            var result = _mapper.Map<Message>(message);
-            _repositoryManager.Message.Delete(result);
+
+            _repositoryManager.Message.DeleteWhere(x => x.Id == id);
+
             await _repositoryManager.CompleteAsync();
 
 

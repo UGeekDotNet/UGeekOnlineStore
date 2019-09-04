@@ -67,10 +67,10 @@ namespace UGeekStore.BLL.Operations
             await _repositoryManager.CompleteAsync();
         }
 
-        public async Task RemoveShipper(ShipperModel shipper)
+        public async Task RemoveShipper(long id)
         {
-            var result = _mapper.Map<Shipper>(shipper);
-            _repositoryManager.Shippers.Delete(result);
+            _repositoryManager.Shippers.DeleteWhere(x => x.Id == id);
+
             await _repositoryManager.CompleteAsync();
         }
 

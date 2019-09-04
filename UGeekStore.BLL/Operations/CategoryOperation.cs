@@ -40,10 +40,10 @@ namespace UGeekStore.BLL.Operations
             await _repositoryManager.CompleteAsync();
         }
 
-        public async Task RemoveCategory(CategoryModel category)
+        public async Task RemoveCategory(long id)
         {
-            var result = _mapper.Map<Category>(category);
-            _repositoryManager.Category.Delete(result);
+
+            _repositoryManager.Category.DeleteWhere(x => x.Id == id);
             await _repositoryManager.CompleteAsync();
 
         }

@@ -36,10 +36,10 @@ namespace UGeekStore.BLL.Operations
 
 
         }
-        public async Task RemoveProduct(ProductModel product)
+        public async Task RemoveProduct(long id)
         {
-            var result = _mapper.Map<Product>(product);
-            _repositoryManager.Product.Delete(result);
+            _repositoryManager.Product.DeleteWhere(x => x.Id == id);
+
             await _repositoryManager.CompleteAsync();
         }
         public async Task UpdateProduct(ProductModel product)
