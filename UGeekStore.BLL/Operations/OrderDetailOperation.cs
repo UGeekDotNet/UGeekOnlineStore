@@ -28,23 +28,23 @@ namespace UGeekStore.BLL.Operations
             return result;
         }
 
-        public async Task AddOrderDetail(OrderDetailModel orderdetail)
+        public async Task AddOrderDetail(OrderDetailModel OrderDetail)
         {
-            var result = _mapper.Map<OrderDetail>(orderdetail);
+            var result = _mapper.Map<OrderDetail>(OrderDetail);
             _repositoryManager.OrderDetails.Add(result);
             await _repositoryManager.CompleteAsync();
         }
 
-        public async Task DeleteOrderDetail(OrderDetailModel orderdetail)
+        public async Task DeleteOrderDetail(OrderDetailModel OrderDetail)
         {
-            var result = _mapper.Map<OrderDetail>(orderdetail);
+            var result = _mapper.Map<OrderDetail>(OrderDetail);
             _repositoryManager.OrderDetails.Delete(result);
             await _repositoryManager.CompleteAsync();
         }
 
-        public async Task UpdateOrderDetail(OrderDetailModel orderdetail)
+        public async Task UpdateOrderDetail(OrderDetailModel OrderDetail)
         {
-            var result = _mapper.Map<OrderDetail>(orderdetail);
+            var result = _mapper.Map<OrderDetail>(OrderDetail);
             _repositoryManager.OrderDetails.Update(result);
             await _repositoryManager.CompleteAsync();
         }
