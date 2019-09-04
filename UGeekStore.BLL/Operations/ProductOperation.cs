@@ -6,46 +6,47 @@ using System.Threading.Tasks;
 using UGeekStore.Core.Infrastructre.BLLInterfaces;
 using UGeekStore.Core.Infrastructre.RepositoryAbstraction;
 using UGeekStore.Core.Models;
-using UGeekStore.DAL.Entities;
+using UGeekStore.Core.Entities;
+
 
 namespace UGeekStore.BLL.Operations
 {
-    public class ShipperOperation : IShipperOperation
+    public class ProductOperation : IProductOperation
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;
-        public ShipperOperation(IRepositoryManager repositoryManager, IMapper mapper)
+        public ProductOperation(IRepositoryManager repositoryManager, IMapper mapper)
         {
             _repositoryManager = repositoryManager;
             _mapper = mapper;
         }
 
-        public async Task<ShipperModel> GetShipper(long id)
+        public async Task<ProductModel> GetProduct(long id)
         {
-            var shipper = await _repositoryManager.Shippers
+            var product = await _repositoryManager.Products
                                                   .GetSingleAsync(item => item.Id == id);
-            var result = _mapper.Map<ShipperModel>(shipper);
+            var result = _mapper.Map<ProductModel>(product);
             return result;
         }
 
-        public async Task AddShipper(ShipperModel shipper)
+        public async Task AddProduct(ProductModel product)
         {
-            var result = _mapper.Map<Shipper>(shipper);
-            _repositoryManager.Shippers.Add(result);
+            var result = _mapper.Map<Product>(product);
+            _repositoryManager.Products.Add(result);
             await _repositoryManager.CompleteAsync();
         }
 
-        public async Task DeleteShipper(ShipperModel shipper)
+        public async Task DeleteProduct(ProductModel product)
         {
-            var result = _mapper.Map<Shipper>(shipper);
-            _repositoryManager.Shippers.Delete(result);
+            var result = _mapper.Map<Product>(product);
+            _repositoryManager.Products.Delete(result);
             await _repositoryManager.CompleteAsync();
         }
 
-        public async Task UpdateShipper(ShipperModel shipper)
+        public async Task UpdateProduct(ProductModel product)
         {
-            var result = _mapper.Map<Shipper>(shipper);
-            _repositoryManager.Shippers.Update(result);
+            var result = _mapper.Map<Product>(product);
+            _repositoryManager.Products.Update(result);
             await _repositoryManager.CompleteAsync();
         }
     }
