@@ -26,7 +26,7 @@ namespace UGeekStore.DAL.EntityConfigurations
                    .WithMany(x => x.Products)
                    .HasForeignKey(x => x.CategoryID)
                    .OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(x => x.Suplier)
+            builder.HasOne(x => x.Supplier)
                    .WithMany(x => x.Products)
                    .HasForeignKey(x => x.SupplierID)
                    .OnDelete(DeleteBehavior.Restrict);

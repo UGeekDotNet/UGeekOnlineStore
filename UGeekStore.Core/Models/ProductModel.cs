@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using UGeekStore.Core.Infrastructre.EntityAbstraction;
 
-namespace UGeekStore.Core.Entities
+namespace UGeekStore.Core.Models
 {
-   public class Product:EntityBaseWithId
+   public class ProductModel
     {
+        public int ID { get; set; }
         private float _weight;
         private decimal _unitPrice;
         private int _count;
@@ -22,7 +22,7 @@ namespace UGeekStore.Core.Entities
             }
             set
             {
-                if (value >= 0 )
+                if (value >= 0)
                 {
                     this._unitPrice = value;
                 }
@@ -53,7 +53,7 @@ namespace UGeekStore.Core.Entities
         }
         public string Description { get; set; }
         public DateTime AddDate { get; set; }
-        public int  Count
+        public int Count
         {
             get
             {
@@ -71,9 +71,5 @@ namespace UGeekStore.Core.Entities
                 }
             }
         }
-
-        public Category Category { get; set; }
-        public Supplier Supplier { get; set; }
-        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

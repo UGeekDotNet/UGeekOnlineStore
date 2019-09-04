@@ -66,5 +66,19 @@ namespace UGeekStore.BLL.Operations
             _repositoryManager.Shippers.Add(result);
             await _repositoryManager.CompleteAsync();
         }
+
+        public async Task RemoveShipper(ShipperModel shipper)
+        {
+            var result = _mapper.Map<Shipper>(shipper);
+            _repositoryManager.Shippers.Delete(result);
+            await _repositoryManager.CompleteAsync();
+        }
+
+        public async Task UpdateShiper(ShipperModel shipper)
+        {
+            var result = _mapper.Map<Shipper>(shipper);
+            _repositoryManager.Shippers.Update(result);
+            await _repositoryManager.CompleteAsync();
+        }
     }
 }
