@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using UGeekStore.Core.Profiles;
 using UGeekStore.DAL;
 using UGeekStore.Middlewares;
 
@@ -34,7 +35,7 @@ namespace UGeekStore
                 options.EnableSensitiveDataLogging(true);
             });
 
-            //services.AddAutoMapper();
+            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
