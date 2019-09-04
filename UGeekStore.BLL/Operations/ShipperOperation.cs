@@ -44,7 +44,6 @@ namespace UGeekStore.BLL.Operations
 
             return result;
         }
-
         public async Task AddShipper(ShipperModel shipper)
         {
             //var shipperEntity = new Shipper
@@ -64,6 +63,17 @@ namespace UGeekStore.BLL.Operations
             var result = _mapper.Map<Shipper>(shipper);
 
             _repositoryManager.Shippers.Add(result);
+            await _repositoryManager.CompleteAsync();
+        }
+        public async Task UpdateShipper(ShipperModel shipperModel)
+        {
+            var updateShipper = _mapper.Map<Shipper>(shipperModel);
+            _repositoryManager.Shippers.Update(updateShipper);
+            await _repositoryManager.CompleteAsync();
+        }
+        public async Task DeleteShipper(long id)
+        {
+            _repositoryManager.Shippers.DeleteWhere(x => x.Id == id);
             await _repositoryManager.CompleteAsync();
         }
     }

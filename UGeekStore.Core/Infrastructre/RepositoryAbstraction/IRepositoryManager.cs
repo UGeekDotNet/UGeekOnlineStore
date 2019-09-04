@@ -9,6 +9,14 @@ namespace UGeekStore.Core.Infrastructre.RepositoryAbstraction
     public interface IRepositoryManager
     {
         IShipperRepository Shippers { get; }
+        ISupplierRepository Suppliers { get; }
+        IProductRepository Products { get; }
+        IOrderRepository Orders { get; }
+        IOrderDetailRepository OrderDetails { get; }
+        IUserRepository Users { get; }
+        IRoleRepository Roles { get; }
+        ICategoryRepository Categories { get; }
+        IMessageRepository Messages { get; }
 
         Task<int> CompleteAsync();
         int Complete();
