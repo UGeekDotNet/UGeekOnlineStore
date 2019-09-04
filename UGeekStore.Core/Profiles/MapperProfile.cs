@@ -26,7 +26,8 @@ namespace UGeekStore.Core.Profiles
 
             CreateMap<Message, MessageModel>();
             CreateMap<MessageModel, Message>()
-                .ForMember(x => new { x.Sender, x.Reciver }, y => y.Ignore());
+                .ForMember(x => x.Sender, y => y.Ignore())
+                .ForMember(x => x.Reciver, y => y.Ignore());
 
             CreateMap<Order, OrderModel>();
             CreateMap<OrderModel, Order>()
@@ -34,11 +35,17 @@ namespace UGeekStore.Core.Profiles
 
             CreateMap<OrderDetail, OrderDetailModel>();
             CreateMap<OrderDetailModel, OrderDetail>()
-                .ForMember(x => new { x.Product, x.Order }, y => y.Ignore());
+                .ForMember(x => x.Product, y => y.Ignore())
+                .ForMember(x => x.Order, y => y.Ignore());
+
 
             CreateMap<Product, ProductModel>();
             CreateMap<ProductModel, Product>()
-                .ForMember(x => new { x.Category, x.Supplier, x.OrderDetails }, y => y.Ignore());
+                .ForMember(x =>x.Category , y => y.Ignore())
+                .ForMember(x => x.Supplier, y => y.Ignore())
+                .ForMember(x => x.OrderDetails, y => y.Ignore());
+
+
 
             CreateMap<Role, RoleModel>();
             CreateMap<RoleModel, Role>()
@@ -50,7 +57,8 @@ namespace UGeekStore.Core.Profiles
 
             CreateMap<User, UserModel>();
             CreateMap<UserModel, User>()
-                .ForMember(x => new { x.SendersMessages, x.ReciversMessages }, y => y.Ignore());
+                .ForMember(x =>x.SendersMessages, y => y.Ignore())
+                .ForMember(x => x.ReciversMessages, y => y.Ignore());
 
 
 

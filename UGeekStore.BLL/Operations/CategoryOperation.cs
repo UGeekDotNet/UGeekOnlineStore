@@ -42,7 +42,6 @@ namespace UGeekStore.BLL.Operations
 
         public async Task RemoveCategory(long id)
         {
-
             _repositoryManager.Category.DeleteWhere(x => x.Id == id);
             await _repositoryManager.CompleteAsync();
 
