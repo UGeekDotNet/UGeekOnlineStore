@@ -16,6 +16,7 @@ namespace UGeekStore.DAL.EntityConfigurations
 
             builder.Property(x => x.Name).HasColumnType("NVARCHAR(50)");
             builder.HasAlternateKey(x => x.Name);
+
         }
     }
 }
