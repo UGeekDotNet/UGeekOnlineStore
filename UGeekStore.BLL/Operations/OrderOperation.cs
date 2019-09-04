@@ -34,10 +34,8 @@ namespace UGeekStore.BLL.Operations
         }
         public async Task UpdateOrder(OrderModel orderModel)
         {
-            var order = await _repositoryManager.Orders.GetSingleAsync(x => x.Id == orderModel.Id);
             var updateOrder = _mapper.Map<Order>(orderModel);
-            order = updateOrder;
-            _repositoryManager.Orders.Update(order);
+            _repositoryManager.Orders.Update(updateOrder);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteOrder(long id)

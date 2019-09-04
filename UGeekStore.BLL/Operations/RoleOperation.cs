@@ -35,10 +35,8 @@ namespace UGeekStore.BLL.Operations
         }
         public async Task UpdateRole(RoleModel roleModel)
         {
-            var role = await _repositoryManager.Roles.GetSingleAsync(x => x.Id == roleModel.Id);
             var updateRole = _mapper.Map<Role>(roleModel);
-            role = updateRole;
-            _repositoryManager.Roles.Update(role);
+            _repositoryManager.Roles.Update(updateRole);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteRole(long id)

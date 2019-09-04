@@ -10,7 +10,7 @@ using UGeekStore.Core.Models;
 
 namespace UGeekStore.BLL.Operations
 {
-    public class OrderDetailOperation:IOrderDetailOperation
+    public class OrderDetailOperation : IOrderDetailOperation
     {
         private readonly IRepositoryManager _repositoryManager;
         private readonly IMapper _mapper;
@@ -20,9 +20,9 @@ namespace UGeekStore.BLL.Operations
             _mapper = mapper;
         }
 
-        public async Task<OrderDetailModel> GetOrderDetails(long orderId ,long productId)
+        public async Task<OrderDetailModel> GetOrderDetail(long orderId, long productId)
         {
-            var orderDetail = await _repositoryManager.OrderDetails.GetSingleAsync(x => x.OrderID==orderId && x.ProductID == productId);
+            var orderDetail = await _repositoryManager.OrderDetails.GetSingleAsync(x => x.OrderID == orderId && x.ProductID == productId);
             var result = _mapper.Map<OrderDetailModel>(orderDetail);
             return result;
         }
@@ -34,16 +34,13 @@ namespace UGeekStore.BLL.Operations
         }
         public async Task UpdateOrderDetail(OrderDetailModel orderDetailModel)
         {
-            var orderDetail = await _repositoryManager.OrderDetails
-                .GetSingleAsync(x => x.OrderID == orderDetailModel.OrderID && x.ProductID==orderDetailModel.ProductID);
             var updateOrderDetail = _mapper.Map<OrderDetail>(orderDetailModel);
-            orderDetail = updateOrderDetail;
-            _repositoryManager.OrderDetails.Update(orderDetail);
+            _repositoryManager.OrderDetails.Update(updateOrderDetail);
             await _repositoryManager.CompleteAsync();
         }
-        public async Task DeleteCategory(long orderId,long productId)
+        public async Task DeleteCategory(long orderId, long productId)
         {
-            _repositoryManager.OrderDetails.DeleteWhere(x => x.OrderID == orderId && x.ProductID==productId);
+            _repositoryManager.OrderDetails.DeleteWhere(x => x.OrderID == orderId && x.ProductID == productId);
             await _repositoryManager.CompleteAsync();
         }
     }
