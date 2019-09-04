@@ -36,8 +36,8 @@ namespace UGeekStore.BLL.Operations
         {
             var user = await _repositoryManager.Users.GetSingleAsync(x => x.Id == userModel.Id);
             var updateUser = _mapper.Map<User>(userModel);
-            updateUser = user;
-            _repositoryManager.Users.Update(updateUser);
+            user = updateUser;
+            _repositoryManager.Users.Update(user);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteUser(long id)

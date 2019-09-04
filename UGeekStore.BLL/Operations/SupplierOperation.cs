@@ -37,8 +37,8 @@ namespace UGeekStore.BLL.Operations
         {
             var supplier = await _repositoryManager.Suppliers.GetSingleAsync(x => x.Id == supplierModel.Id);
             var updateSupplier = _mapper.Map<Supplier>(supplierModel);
-            updateSupplier = supplier;
-            _repositoryManager.Suppliers.Update(updateSupplier);
+            supplier = updateSupplier;
+            _repositoryManager.Suppliers.Update(supplier);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteSupplier(long id)

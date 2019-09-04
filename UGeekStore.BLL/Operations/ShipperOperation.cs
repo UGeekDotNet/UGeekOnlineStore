@@ -69,8 +69,8 @@ namespace UGeekStore.BLL.Operations
         {
             var shipper = await _repositoryManager.Shippers.GetSingleAsync(x => x.Id == shipperModel.Id);
             var updateShipper = _mapper.Map<Shipper>(shipperModel);
-            updateShipper = shipper;
-            _repositoryManager.Shippers.Update(updateShipper);
+            shipper = updateShipper;
+            _repositoryManager.Shippers.Update(shipper);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteShipper(long id)

@@ -37,8 +37,8 @@ namespace UGeekStore.BLL.Operations
             var orderDetail = await _repositoryManager.OrderDetails
                 .GetSingleAsync(x => x.OrderID == orderDetailModel.OrderID && x.ProductID==orderDetailModel.ProductID);
             var updateOrderDetail = _mapper.Map<OrderDetail>(orderDetailModel);
-            updateOrderDetail = orderDetail;
-            _repositoryManager.OrderDetails.Update(updateOrderDetail);
+            orderDetail = updateOrderDetail;
+            _repositoryManager.OrderDetails.Update(orderDetail);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteCategory(long orderId,long productId)

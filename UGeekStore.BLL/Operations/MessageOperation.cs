@@ -36,8 +36,8 @@ namespace UGeekStore.BLL.Operations
         {
             var message = await _repositoryManager.Messages.GetSingleAsync(x => x.Id == messageModel.Id);
             var updateMessage = _mapper.Map<Message>(messageModel);
-            updateMessage = message;
-            _repositoryManager.Messages.Update(updateMessage);
+            message = updateMessage;
+            _repositoryManager.Messages.Update(message);
             await _repositoryManager.CompleteAsync();
         }
         public async Task DeleteMessage(long id)
