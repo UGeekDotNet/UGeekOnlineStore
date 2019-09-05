@@ -32,11 +32,11 @@ namespace UGeekStore.Core.Profiles
                 .ForMember(x =>x.Reciver, x => x.Ignore());
             CreateMap<Message, MessageModel>();
 
-            CreateMap<OrderModel, Order>()
+            CreateMap<UserModel, Order>()
                 .ForMember(x => x.User, x => x.Ignore())
                 .ForMember(x => x.OrderDetails, x => x.Ignore())
                 .ForMember(x => x.Shipper, x => x.Ignore());
-            CreateMap<Order, OrderModel>();
+            CreateMap<Order, UserModel>();
 
             CreateMap<OrderDetailModel, OrderDetail>()
                 .ForMember(x => x.Product, x => x.Ignore())

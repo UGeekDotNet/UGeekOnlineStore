@@ -20,19 +20,19 @@ namespace UGeekStore.BLL.Operations
             _mapper = mapper;
         }
 
-        public async Task<OrderModel> GetOrder (long id)
+        public async Task<Core.Models.UserModel> GetOrder (long id)
         {
             var order = await _repositoryManager.Orders.GetSingleAsync(x => x.Id == id);
-            var result = _mapper.Map<OrderModel>(order);
+            var result = _mapper.Map<Core.Models.UserModel>(order);
             return result;
         }
-        public async Task AddOrder(OrderModel order)
+        public async Task AddOrder(Core.Models.UserModel order)
         {
             var result = _mapper.Map<Order>(order);
             _repositoryManager.Orders.Add(result);
             await _repositoryManager.CompleteAsync();
         }
-        public async Task UpdateOrder(OrderModel orderModel)
+        public async Task UpdateOrder(Core.Models.UserModel orderModel)
         {
             var updateOrder = _mapper.Map<Order>(orderModel);
             _repositoryManager.Orders.Update(updateOrder);
