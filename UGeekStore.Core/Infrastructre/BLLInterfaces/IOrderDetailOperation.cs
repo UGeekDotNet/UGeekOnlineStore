@@ -11,6 +11,6 @@ namespace UGeekStore.Core.Infrastructre.BLLInterfaces
         Task<OrderDetailModel> GetOrderDetail(long orderId, long productId);
         Task AddOrderDetails(OrderDetailModel orderDetailsModel);
         Task UpdateOrderDetail(OrderDetailModel orderDetailModel);
-        Task DeleteCategory(long orderId, long productId);
+        Task DeleteOrderDetail(long orderId, long productId);
     }
 }

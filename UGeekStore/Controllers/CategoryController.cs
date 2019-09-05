@@ -26,7 +26,6 @@ namespace UGeekStore.Controllers
         public Task<CategoryModel> GetCategory([FromRoute]int id)
         {
             var result = _categoryOperation.GetCategory(id);
-
             return result;
         }
 
