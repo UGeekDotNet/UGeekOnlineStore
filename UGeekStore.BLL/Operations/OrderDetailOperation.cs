@@ -38,7 +38,7 @@ namespace UGeekStore.BLL.Operations
             _repositoryManager.OrderDetails.Update(updateOrderDetail);
             await _repositoryManager.CompleteAsync();
         }
-        public async Task DeletOrderDetail(long orderId, long productId)
+        public async Task DeleteOrderDetail(long orderId, long productId)
         {
             _repositoryManager.OrderDetails.DeleteWhere(x => x.OrderID == orderId && x.ProductID == productId);
             await _repositoryManager.CompleteAsync();
