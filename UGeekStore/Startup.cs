@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using UGeekStore.Core.Profiles;
 using UGeekStore.DAL;
+using UGeekStore.Hubs;
 using UGeekStore.Middlewares;
 
 namespace UGeekStore
@@ -35,7 +36,9 @@ namespace UGeekStore
                 options.EnableSensitiveDataLogging(true);
             });
 
+
             services.AddAutoMapper();
+            services.AddSignalR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -49,7 +52,14 @@ namespace UGeekStore
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSignalR(route =>   
+            {
+                route.MapHub<ChatHub>("/ws");
+            });
 
+            
+
+            
             app.UseMvc();
         }
     }
