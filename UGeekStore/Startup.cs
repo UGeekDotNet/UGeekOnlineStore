@@ -57,7 +57,7 @@ namespace UGeekStore
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<MessageHub>("/messageHub");
+                routes.MapHub<MessageHub>("/message");
             });
         }
     }
