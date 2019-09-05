@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using UGeekStore.Core.Profiles;
+using UGeekStore.Core.SignalR;
 using UGeekStore.DAL;
 using UGeekStore.Middlewares;
 
@@ -37,6 +38,9 @@ namespace UGeekStore
 
             services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSignalR();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,8 +53,12 @@ namespace UGeekStore
                 app.UseDeveloperExceptionPage();
             }
 
-
             app.UseMvc();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<MessageHub>("/messageHub");
+            });
         }
     }
 }
