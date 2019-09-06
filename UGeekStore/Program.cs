@@ -21,7 +21,7 @@ namespace UGeekStore
             WebHost.CreateDefaultBuilder(args)
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseKestrel()
-                .UseUrls("http://0.0.0.0:5000")
+                .UseUrls("http://0.0.0.0:5008")
                 .UseStartup<Startup>();
     }
 }

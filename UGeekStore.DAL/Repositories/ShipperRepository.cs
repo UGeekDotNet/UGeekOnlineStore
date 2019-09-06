@@ -12,10 +12,5 @@ namespace UGeekStore.DAL.Repositories
         public ShipperRepository(StoreContext _context) : base(_context)
         {
         }
-
-        public Task Example()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

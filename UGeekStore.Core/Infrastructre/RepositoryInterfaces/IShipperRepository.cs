@@ -9,6 +9,5 @@ namespace UGeekStore.Core.Infrastructre.RepositoryInterfaces
 {
     public interface IShipperRepository : IRepositoryBase<Shipper>
     {
-        Task Example();
     }
 }

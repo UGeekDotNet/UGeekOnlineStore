@@ -19,8 +19,8 @@ namespace UGeekStore.Controllers
             _orderDetailOperation = orderDetailOperation;
         }
 
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
+        // GET api/<controller>/5/Product/4
+        [HttpGet("{orderId}/Product/{productId}")]
         public Task<OrderDetailModel> GetOrderDetail([FromRoute]int productId,[FromRoute]int orderId)
         {
             var result = _orderDetailOperation.GetOrderDetail(orderId,productId);
@@ -42,8 +42,8 @@ namespace UGeekStore.Controllers
             await _orderDetailOperation.UpdateOrderDetail(orderDetail);
         }
 
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
+        // DELETE api/<controller>/5/Product/4
+        [HttpDelete("{orderId}/Product/{productId}")]
         public async Task DeletOrderDetail([FromRoute]int productId,[FromRoute] int orderId)
         {
             await _orderDetailOperation.DeleteOrderDetail(orderId,productId);

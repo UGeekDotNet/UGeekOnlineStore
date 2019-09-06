@@ -15,6 +15,10 @@ namespace UGeekStore.Controllers
     {
         private readonly ICategoryOperation _categoryOperation;
 
+        /// <summary>
+        /// Category meens product type
+        /// </summary>
+        /// <param name="categoryOperation"></param>
         public CategoryController(ICategoryOperation categoryOperation)
         {
             _categoryOperation = categoryOperation;
