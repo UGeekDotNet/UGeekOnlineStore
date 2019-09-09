@@ -14,7 +14,7 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
-            builder.Property(x => x.Mesagge).HasColumnType("NVARCHAR(255)").IsRequired();
+            builder.Property(x => x.MessageText).HasColumnType("NVARCHAR(255)").IsRequired();
             builder.Property(x => x.SendTime).HasDefaultValue(DateTime.Now);
 
             builder.HasOne(x => x.Sender)

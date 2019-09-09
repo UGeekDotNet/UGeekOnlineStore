@@ -5,18 +5,19 @@ using UGeekStore.Core.Entities;
 
 namespace UGeekStore.Core.Profiles
 {
-    public class MapperProfile : AutoMapper.Profile
+    public class MappingProfile : Profile
     {
-        public MapperProfile()
+        public MappingProfile()
         {
-            Mapper.Initialize(cfg =>
-            {
-                cfg.ConstructServicesUsing(x => x);
-            });
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.ConstructServicesUsing(x => x);
+            //});
 
             CreateMap<Shipper, ShipperModel>()
                 .ForMember(s => s.Mobile, d => d.MapFrom(x => x.Phone));
             CreateMap<ShipperModel, Shipper>()
+                .ForMember(s => s.Phone, d => d.MapFrom(x => x.Mobile))
                 .ForMember(s => s.Orders, d => d.Ignore());
 
             CreateMap<SupplierModel, Supplier>()
@@ -28,9 +29,11 @@ namespace UGeekStore.Core.Profiles
             CreateMap<Category, CategoryModel>();
 
             CreateMap<MessageModel, Message>()
-                .ForMember(x =>x.Sender, x => x.Ignore())
-                .ForMember(x =>x.Reciver, x => x.Ignore());
-            CreateMap<Message, MessageModel>();
+                .ForMember(x => x.Sender, x => x.Ignore())
+                .ForMember(x => x.MessageText, x => x.MapFrom(p => p.Message))
+                .ForMember(x => x.Reciver, x => x.Ignore());
+            CreateMap<Message, MessageModel>()
+                .ForMember(x => x.Message, x => x.MapFrom(p => p.MessageText));
 
             CreateMap<OrderModel, Order>()
                 .ForMember(x => x.User, x => x.Ignore())

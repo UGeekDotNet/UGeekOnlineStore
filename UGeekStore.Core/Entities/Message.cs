@@ -9,7 +9,7 @@ namespace UGeekStore.Core.Entities
     {
         public int SenderID { get; set; }
         public int ReciverID { get; set; }
-        public string Mesagge { get; set; }
+        public string MessageText { get; set; }
         public DateTime SendTime { get; set; }
         public DateTime ReadDate { get; set; }
 

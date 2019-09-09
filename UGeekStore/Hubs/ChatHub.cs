@@ -11,10 +11,30 @@ namespace UGeekStore.Hubs
 
     public class ChatHub: Hub
     {
-        public async Task SendMessage(string userName ,MessageModel message)
+        IMessageOperation _messageOperation;
+        public ChatHub(IMessageOperation messageOperation)
         {
-           
-            await  Clients.User(userName).SendAsync("reciverMessage", message);
+            _messageOperation = messageOperation;
+        }
+
+        public async Task SendMessage(string userId ,string message)
+        {
+            if(string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(Context.User.Identity.Name))
+            {
+                throw new Exception("UserId is empty");
+            }
+
+            if (int.TryParse(userId, out int receiverId) && int.TryParse(Context.User.Identity.Name, out int senderId))
+            {
+                await Clients.User(userId).SendAsync("receiveMessage", arg1: message);
+                var messageEntity = new MessageModel
+                {
+                    Message = message,
+                    ReciverID = receiverId,
+                    SenderID = senderId
+                };
+                await _messageOperation.AddMessage(messageEntity);
+            }
         }
     }
 }

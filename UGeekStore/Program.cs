@@ -12,16 +12,16 @@ namespace UGeekStore
 {
     public class Program
     {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+        public static void Main(string[] args) =>
+            CreateWebHostBuilder(args).Build()
+                                      .MigrateDatabase()
+                                      .Run();
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseKestrel()
-                .UseUrls("http://0.0.0.0:5008")
-                .UseStartup<Startup>();
+                   .UseContentRoot(Directory.GetCurrentDirectory())
+                   .UseKestrel()
+                   .UseUrls("http://0.0.0.0:5008")
+                   .UseStartup<Startup>();
     }
 }

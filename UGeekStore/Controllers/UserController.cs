@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UGeekStore.Core.Infrastructre.BLLInterfaces;
 using UGeekStore.Core.Models;
@@ -10,6 +11,7 @@ using UGeekStore.Core.Models;
 
 namespace UGeekStore.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
@@ -39,7 +41,9 @@ namespace UGeekStore.Controllers
         }
 
         // POST api/<controller>
+        // registration
         [HttpPost]
+        [AllowAnonymous]
         public async Task AddUser([FromBody]UserModel user)
         {
             await _userOperation.AddUser(user);

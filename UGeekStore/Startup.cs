@@ -52,8 +52,14 @@ namespace UGeekStore
             // dependency injection
             services.AddDALServices();
             services.AddBLLServices();
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
 
-            services.AddAutoMapper(item => item.AddProfile<MapperProfile>());
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
             services.AddSignalR();
             var appSettingsSection = Configuration.GetSection("TokenAuthentification");
             services.Configure<TokenAuthentification>(appSettingsSection);
@@ -73,7 +79,7 @@ namespace UGeekStore
                     {
                         var userService = context.HttpContext.RequestServices.GetRequiredService<IUserOperation>();
                         var userId = int.Parse(context.Principal.Identity.Name);
-                        var user = userService.GetUser(userId);
+                        var user = userService.GetUser(userId).GetAwaiter().GetResult();
                         if (user == null)
                         {
                             context.Fail("Unauthorized");
@@ -99,10 +105,10 @@ namespace UGeekStore
         {
             app.UseMiddleware<ErrorHandlingMiddleware>();
             
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
 
             app.UseSignalR(route =>   
             {

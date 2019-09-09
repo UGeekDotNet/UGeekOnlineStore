@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UGeekStore.DAL;
 
 namespace UGeekStore.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20190909132244_passwordHash and PasswordSalt")]
+    partial class passwordHashandPasswordSalt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace UGeekStore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("MessageText")
+                    b.Property<string>("Mesagge")
                         .IsRequired()
                         .HasColumnType("NVARCHAR(255)");
 
@@ -52,7 +54,7 @@ namespace UGeekStore.Migrations
 
                     b.Property<DateTime>("SendTime")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 9, 9, 20, 25, 1, 337, DateTimeKind.Local).AddTicks(5114));
+                        .HasDefaultValue(new DateTime(2019, 9, 9, 17, 22, 44, 288, DateTimeKind.Local).AddTicks(2344));
 
                     b.Property<int>("SenderID");
 
@@ -85,7 +87,7 @@ namespace UGeekStore.Migrations
 
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2019, 9, 9, 20, 25, 1, 329, DateTimeKind.Local).AddTicks(9311));
+                        .HasDefaultValue(new DateTime(2019, 9, 9, 17, 22, 44, 278, DateTimeKind.Local).AddTicks(3216));
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
