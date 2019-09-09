@@ -29,6 +29,7 @@ namespace UGeekStore.Controllers
             return result;
 
         }
+
         // GET api/<controller>/5
         [HttpGet("fromToken")]
         public Task<UserModel> GetUserFromToken()

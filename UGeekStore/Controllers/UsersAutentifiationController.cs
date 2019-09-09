@@ -32,6 +32,8 @@ namespace OnlineStore.API.Controllers
             _mapper = mapper;
         }
 
+
+        // Login
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<UserAuthenticationModel> Authenticate([FromBody]LoginModel userModel)

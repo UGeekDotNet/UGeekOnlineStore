@@ -34,6 +34,12 @@ namespace UGeekStore
         private static void CheckStaticData()
         {
             // seed data here ...
+
+            // example
+            //if(!DbContext.Roles.Any())
+            //{
+            //    DbContext.Roles.Add(new Core.Entities.Role { Name = "admin" });
+            //}
         }
     }
 }

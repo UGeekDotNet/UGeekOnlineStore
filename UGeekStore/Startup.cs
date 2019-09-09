@@ -104,15 +104,10 @@ namespace UGeekStore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMiddleware<ErrorHandlingMiddleware>();
-            
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
 
             app.UseSignalR(route =>   
             {
-                route.MapHub<ChatHub>("/ws");
+                route.MapHub<ChatHub>("/chat");
             });
 
             app.UseSwagger();

@@ -31,7 +31,9 @@ namespace UGeekStore.Hubs
                 {
                     Message = message,
                     ReciverID = receiverId,
-                    SenderID = senderId
+                    SenderID = senderId,
+                    ReadDate = null,
+                    SendTime = DateTime.Now
                 };
                 await _messageOperation.AddMessage(messageEntity);
             }

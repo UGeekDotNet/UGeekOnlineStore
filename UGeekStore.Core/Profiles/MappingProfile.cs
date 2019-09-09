@@ -9,11 +9,6 @@ namespace UGeekStore.Core.Profiles
     {
         public MappingProfile()
         {
-            //Mapper.Initialize(cfg =>
-            //{
-            //    cfg.ConstructServicesUsing(x => x);
-            //});
-
             CreateMap<Shipper, ShipperModel>()
                 .ForMember(s => s.Mobile, d => d.MapFrom(x => x.Phone));
             CreateMap<ShipperModel, Shipper>()

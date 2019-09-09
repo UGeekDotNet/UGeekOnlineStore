@@ -11,6 +11,6 @@ namespace UGeekStore.Core.Models
         public int ReciverID { get; set; }
         public string Message { get; set; }
         public DateTime SendTime { get; set; }
-        public DateTime ReadDate { get; set; }
+        public DateTime? ReadDate { get; set; }
     }
 }
