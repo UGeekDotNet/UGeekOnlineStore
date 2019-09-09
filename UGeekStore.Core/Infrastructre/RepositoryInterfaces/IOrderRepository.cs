@@ -6,7 +6,8 @@ using UGeekStore.Core.Infrastructre.RepositoryAbstraction;
 
 namespace UGeekStore.Core.Infrastructre.RepositoryInterfaces
 {
-   public interface IOrderRepository: IRepositoryBase<Order>
+    public interface IOrderRepository: IRepositoryBase<Order>
     {
+        
     }
 }

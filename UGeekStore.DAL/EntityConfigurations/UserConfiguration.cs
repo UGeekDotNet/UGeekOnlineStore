@@ -15,9 +15,10 @@ namespace UGeekStore.DAL.EntityConfigurations
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
 
             builder.Property(x => x.UserName).HasColumnType("NVARCHAR(50)").IsRequired();
-            builder.Property(x => x.Password).HasColumnType("NVARCHAR(25)").IsRequired();
+            //builder.Property(x => x.PasswordHash).HasColumnType("varbinary").IsRequired();
             builder.Property(x => x.FirstName).HasColumnType("NVARCHAR(30)").IsRequired();
             builder.Property(x => x.LastName).HasColumnType("NVARCHAR(40)").IsRequired();
+           // builder.Property(x => x.PasswordSalt).HasColumnType("VARBINARY").IsRequired();
             builder.Property(x => x.Email).HasColumnType("NVARCHAR(50)").IsRequired();
             builder.Property(x => x.RegisterDate).HasColumnType("DATE").HasDefaultValue(DateTime.Now.Date);
             builder.Property(x => x.Address).HasColumnType("NVARCHAR(100)");
