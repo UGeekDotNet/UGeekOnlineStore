@@ -104,7 +104,13 @@ namespace UGeekStore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials());
 
+            app.UseAuthentication();
             app.UseSignalR(route =>   
             {
                 route.MapHub<ChatHub>("/chat");
