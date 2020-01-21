@@ -18,8 +18,10 @@ namespace UGeekStore.DAL
         public DbSet<Message> Messages { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public StoreContext(DbContextOptions options)
-            : base(options) { }
+        public StoreContext(DbContextOptions options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
